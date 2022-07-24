@@ -1,0 +1,16 @@
+version: "3"
+services:
+  dragonfly:
+    image: "docker.dragonflydb.io/dragonflydb/dragonfly"
+    command: "--maxmemory 2147483648"
+    ulimits:
+      memlock: -1
+    ports:
+      - "6380:6379"
+  redis:
+    image: "redis:7.0.4"
+    command: "--maxmemory 2147483648"
+    ulimits:
+      memlock: -1
+    ports:
+      - "6379:6379"
